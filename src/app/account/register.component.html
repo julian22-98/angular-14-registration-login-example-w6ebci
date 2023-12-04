@@ -1,0 +1,50 @@
+<div class="card">
+    <h4 class="card-header">Register</h4>
+    <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input type="text" formControlName="Nombre" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Nombre.errors }" />
+                <div *ngIf="submitted && f.Nombre.errors" class="invalid-feedback">
+                    <div *ngIf="f.firstName.errors.required">Nombre is required</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Apellido</label>
+                <input type="text" formControlName="Apellido" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Apellido.errors }" />
+                <div *ngIf="submitted && f.Apellido.errors" class="invalid-feedback">
+                    <div *ngIf="f.Apellido.errors.required">Apellido is required</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Telefono</label>
+                <input type="text" formControlName="telefono" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Telefono.errors }" />
+                <div *ngIf="submitted && f.Telefono.errors" class="invalid-feedback">
+                    <div *ngIf="f.Telefono.errors.required">Telefono is required</div>
+                </div>
+            </div>
+            <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="text" formControlName="Email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Email.errors }" />
+            <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+                <div *ngIf="f.Email.errors.required">Email is required</div>
+            </div>
+        </div>
+            <div class="mb-3">
+                <label class="form-label">Contraseña</label>
+                <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Contraseña is required</div>
+                    <div *ngIf="f.password.errors.minlength">Contraseña must be at least 6 characters</div>
+                </div>
+            </div>
+            <div>
+                <button [disabled]="loading" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+                    Register
+                </button>
+                <a routerLink="../login" class="btn btn-link">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
